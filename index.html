@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Silva | Ingeniero de Sistemas | Soporte Técnico &amp; Full Stack</title>
+  <meta name="description" content="Portfolio profesional de Daniel Silva, Ingeniero de Sistemas con experiencia en soporte técnico, troubleshooting, redes y desarrollo de software Full Stack.">
+  <meta name="keywords" content="Ingeniero de Sistemas, Soporte Técnico, Analista TIC, Soporte N2, Redes, Troubleshooting, Java, Spring Boot, Backend, Full Stack, React, Python, SQL">
+  <meta name="author" content="Daniel Silva">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Daniel Silva | Ingeniero de Sistemas">
+  <meta property="og:description" content="Portfolio profesional de Daniel Silva — Soporte Técnico, Troubleshooting, Redes y Desarrollo Full Stack.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            dark: {
+              900: '#050816',
+              800: '#0B1120',
+              700: '#111827',
+              600: '#1E293B',
+            },
+            accent: {
+              blue: '#3B82F6',
+              'blue-light': '#60A5FA',
+              cyan: '#22D3EE',
+              'cyan-dark': '#06B6D4',
+              lime: '#84CC16',
+            },
+            slate: {
+              300: '#CBD5E1',
+              400: '#94A3B8',
+              500: '#64748B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <!-- DevIcons for tech logos -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
+
+  <style>
+    * { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: #050816;
+      color: #F8FAFC;
+      overflow-x: hidden;
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #050816; }
+    ::-webkit-scrollbar-thumb { background: #1E293B; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3B82F6; }
+
+    /* ── Animations ── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%      { transform: translateY(-12px); }
+    }
+    @keyframes float-delayed {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      33%      { transform: translateY(-8px) rotate(1deg); }
+      66%      { transform: translateY(4px) rotate(-1deg); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 5px rgba(59,130,246,0.3); }
+      50%      { box-shadow: 0 0 20px rgba(59,130,246,0.6); }
+    }
+    @keyframes gradient-shift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to   { width: 100%; }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50%      { border-color: #3B82F6; }
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes flow-pulse {
+      0%, 100% { opacity: 0.4; }
+      50%      { opacity: 1; }
+    }
+    @keyframes scan-line {
+      0%   { transform: translateY(-100%); }
+      100% { transform: translateY(100vh); }
+    }
+    @keyframes grid-fade {
+      0%, 100% { opacity: 0.03; }
+      50%      { opacity: 0.06; }
+    }
+
+    /* ── Utility classes ── */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .animate-on-scroll.from-left {
+      transform: translateX(-40px);
+    }
+    .animate-on-scroll.from-left.visible {
+      transform: translateX(0);
+    }
+    .animate-on-scroll.from-right {
+      transform: translateX(40px);
+    }
+    .animate-on-scroll.from-right.visible {
+      transform: translateX(0);
+    }
+
+    .glass {
+      background: rgba(11,17,32,0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(59,130,246,0.1);
+    }
+    .glass-card {
+      background: rgba(11,17,32,0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(59,130,246,0.08);
+      transition: all 0.3s ease;
+    }
+    .glass-card:hover {
+      border-color: rgba(59,130,246,0.25);
+      box-shadow: 0 0 30px rgba(59,130,246,0.08);
+      transform: translateY(-4px);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #60A5FA, #22D3EE);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gradient-text-lime {
+      background: linear-gradient(135deg, #84CC16, #22D3EE);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .glow-blue { box-shadow: 0 0 20px rgba(59,130,246,0.15); }
+    .glow-cyan { box-shadow: 0 0 20px rgba(34,211,238,0.15); }
+
+    .bg-grid {
+      background-image:
+        linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: grid-fade 8s ease-in-out infinite;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, #3B82F6, #22D3EE, transparent);
+      transform: translateX(-50%);
+    }
+    @media (max-width: 768px) {
+      .timeline-line { left: 20px; }
+    }
+
+    .flow-connector {
+      width: 2px;
+      height: 40px;
+      background: linear-gradient(to bottom, #3B82F6, #22D3EE);
+      margin: 0 auto;
+      position: relative;
+    }
+    .flow-connector::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid #22D3EE;
+    }
+
+    .arch-layer {
+      transition: all 0.4s ease;
+      position: relative;
+    }
+    .arch-layer:hover {
+      transform: scale(1.03);
+      z-index: 10;
+    }
+    .arch-connector {
+      width: 2px;
+      height: 32px;
+      background: linear-gradient(to bottom, rgba(59,130,246,0.5), rgba(34,211,238,0.5));
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    .arch-connector::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, #60A5FA, transparent);
+      animation: flow-pulse 2s ease-in-out infinite;
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #3B82F6, #22D3EE);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+    .nav-link.active { color: #60A5FA; }
+
+    .badge-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    .badge-float:nth-child(2) { animation-delay: 0.5s; }
+    .badge-float:nth-child(3) { animation-delay: 1s; }
+    .badge-float:nth-child(4) { animation-delay: 1.5s; }
+    .badge-float:nth-child(5) { animation-delay: 2s; }
+    .badge-float:nth-child(6) { animation-delay: 2.5s; }
+    .badge-float:nth-child(7) { animation-delay: 3s; }
+    .badge-float:nth-child(8) { animation-delay: 3.5s; }
+
+    .typing-text {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #3B82F6;
+      animation: typing 3s steps(50, end) forwards, blink-caret 0.75s step-end infinite;
+    }
+
+    .skill-ring {
+      transform: rotate(-90deg);
+    }
+    .skill-ring circle.progress {
+      stroke-dasharray: 283;
+      stroke-dashoffset: 283;
+      transition: stroke-dashoffset 1.5s ease-out;
+    }
+
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    /* ── Focus styles ── */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid #60A5FA;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    .counter-value {
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+</head>
+
+<body class="bg-dark-900 min-h-screen">
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- NAVBAR                                      -->
+  <!-- ═══════════════════════════════════════════ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 glass transition-all duration-300" aria-label="Navegación principal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="#hero" class="text-lg font-bold gradient-text tracking-tight" aria-label="Inicio">
+          Daniel Silva
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-6">
+          <a href="#hero" class="nav-link text-sm text-slate-300 hover:text-white" data-section="hero">Inicio</a>
+          <a href="#perfil" class="nav-link text-sm text-slate-300 hover:text-white" data-section="perfil">Perfil</a>
+          <a href="#experiencia" class="nav-link text-sm text-slate-300 hover:text-white" data-section="experiencia">Experiencia</a>
+          <a href="#soporte" class="nav-link text-sm text-slate-300 hover:text-white" data-section="soporte">Soporte</a>
+          <a href="#techstack" class="nav-link text-sm text-slate-300 hover:text-white" data-section="techstack">Skills</a>
+          <a href="#proyectos" class="nav-link text-sm text-slate-300 hover:text-white" data-section="proyectos">Proyectos</a>
+          <a href="#formacion" class="nav-link text-sm text-slate-300 hover:text-white" data-section="formacion">Formación</a>
+          <a href="#contacto" class="nav-link text-sm text-slate-300 hover:text-white" data-section="contacto">Contacto</a>
+        </div>
+
+        <!-- Mobile hamburger -->
+        <button id="menu-toggle" class="md:hidden text-slate-300 hover:text-white p-2" aria-label="Abrir menú de navegación" aria-expanded="false">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-72 bg-dark-800/95 backdrop-blur-xl border-l border-blue-500/10 md:hidden z-50">
+      <div class="flex items-center justify-between p-4 border-b border-blue-500/10">
+        <span class="text-lg font-bold gradient-text">Menú</span>
+        <button id="menu-close" class="text-slate-300 hover:text-white p-2" aria-label="Cerrar menú">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <div class="flex flex-col p-4 gap-2">
+        <a href="#hero" class="mobile-nav-link block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Inicio</a>
+        <a href="#perfil" class="mobile-nav-link block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Perfil</a>
+        <a href="#experiencia" class="mobile-nav-link block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Experiencia</a>
+        <a href="#soporte" class="mobile-nav-link block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Soporte</a>
+        <a href="#techstack" class="mobile-nav-link block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Skills</a>
+        <a href="#proyectos" class="mobile-nav-link block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Proyectos</a>
+        <a href="#formacion" class="mobile-nav-link block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Formación</a>
+        <a href="#contacto" class="mobile-nav-link block px-4 py-3 text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- HERO                                        -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="hero" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
+      <!-- Background Grid -->
+      <div class="absolute inset-0 bg-grid"></div>
+      <!-- Gradient Orbs -->
+      <div class="absolute top-20 left-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 right-10 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          <!-- Left: Text content -->
+          <div class="space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/5 text-sm text-blue-400">
+              <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+              Disponible para oportunidades
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+              <span class="gradient-text">Daniel Silva</span>
+            </h1>
+
+            <p class="text-xl sm:text-2xl font-semibold text-slate-300">Ingeniero de Sistemas</p>
+
+            <div class="h-10 flex items-center justify-center lg:justify-start">
+              <p class="typing-text text-lg sm:text-xl text-blue-400 font-mono">
+                Transformo problemas tecnológicos en soluciones eficientes.
+              </p>
+            </div>
+
+            <p class="text-slate-400 text-sm sm:text-base tracking-wide">
+              Soporte Técnico · Desarrollo Full Stack · Backend · Soluciones Tecnológicas
+            </p>
+
+            <div class="flex flex-wrap gap-3 justify-center lg:justify-start pt-2">
+              <a href="#experiencia" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-lg hover:from-blue-500 hover:to-cyan-500 transition-all duration-300 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40" aria-label="Ver experiencia profesional">
+                <i data-lucide="briefcase" class="w-4 h-4"></i>
+                Ver experiencia
+              </a>
+              <a href="#contacto" class="inline-flex items-center gap-2 px-6 py-3 border border-blue-500/30 text-blue-400 font-semibold rounded-lg hover:bg-blue-500/10 hover:border-blue-500/50 transition-all duration-300" aria-label="Ir a la sección de contacto">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+                Contactarme
+              </a>
+              <a href="YOUR_CV_URL" class="inline-flex items-center gap-2 px-6 py-3 text-slate-400 hover:text-white font-medium rounded-lg hover:bg-white/5 transition-all duration-300" aria-label="Descargar curriculum vitae" target="_blank" rel="noopener">
+                <i data-lucide="download" class="w-4 h-4"></i>
+                Descargar CV
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Visual composition -->
+          <div class="relative hidden lg:block">
+            <!-- Terminal/Code visual -->
+            <div class="glass-card rounded-xl p-1 glow-blue">
+              <div class="bg-dark-900/80 rounded-lg overflow-hidden">
+                <!-- Terminal header -->
+                <div class="flex items-center gap-2 px-4 py-2.5 border-b border-white/5">
+                  <div class="w-3 h-3 rounded-full bg-red-500/70"></div>
+                  <div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
+                  <div class="w-3 h-3 rounded-full bg-green-500/70"></div>
+                  <span class="ml-2 text-xs text-slate-500 font-mono">daniel@systems:~</span>
+                </div>
+                <!-- Code content -->
+                <div class="p-5 font-mono text-sm leading-relaxed">
+                  <p><span class="text-blue-400">const</span> <span class="text-cyan-300">engineer</span> = {</p>
+                  <p class="pl-4"><span class="text-slate-400">name:</span> <span class="text-green-400">"Daniel Silva"</span>,</p>
+                  <p class="pl-4"><span class="text-slate-400">role:</span> <span class="text-green-400">"Ingeniero de Sistemas"</span>,</p>
+                  <p class="pl-4"><span class="text-slate-400">experience:</span> {</p>
+                  <p class="pl-8"><span class="text-slate-400">support:</span> <span class="text-green-400">"3+ años"</span>,</p>
+                  <p class="pl-8"><span class="text-slate-400">development:</span> <span class="text-green-400">"Full Stack"</span>,</p>
+                  <p class="pl-4">},</p>
+                  <p class="pl-4"><span class="text-slate-400">skills:</span> [</p>
+                  <p class="pl-8"><span class="text-green-400">"Troubleshooting"</span>, <span class="text-green-400">"Redes"</span>,</p>
+                  <p class="pl-8"><span class="text-green-400">"Java"</span>, <span class="text-green-400">"Spring Boot"</span>,</p>
+                  <p class="pl-8"><span class="text-green-400">"React"</span>, <span class="text-green-400">"PostgreSQL"</span></p>
+                  <p class="pl-4">],</p>
+                  <p class="pl-4"><span class="text-slate-400">status:</span> <span class="text-green-400">"Disponible"</span></p>
+                  <p>};</p>
+                  <p class="mt-2"><span class="text-slate-500">// Resolviendo problemas desde 2022</span></p>
+                  <p><span class="text-blue-400">engineer</span>.<span class="text-cyan-300">solve</span>(<span class="text-green-400">"challenges"</span>);<span class="inline-block w-2 h-4 bg-blue-400 ml-0.5 animate-pulse"></span></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Badges -->
+            <div class="absolute -top-4 -left-6 badge-float">
+              <div class="glass-card rounded-lg px-3 py-1.5 text-xs font-semibold text-blue-400 flex items-center gap-1.5">
+                <i class="devicon-java-plain text-sm"></i> Java
+              </div>
+            </div>
+            <div class="absolute top-8 -right-8 badge-float">
+              <div class="glass-card rounded-lg px-3 py-1.5 text-xs font-semibold text-green-400 flex items-center gap-1.5">
+                <i class="devicon-spring-plain text-sm"></i> Spring Boot
+              </div>
+            </div>
+            <div class="absolute top-1/3 -left-10 badge-float">
+              <div class="glass-card rounded-lg px-3 py-1.5 text-xs font-semibold text-yellow-400 flex items-center gap-1.5">
+                <i class="devicon-python-plain text-sm"></i> Python
+              </div>
+            </div>
+            <div class="absolute top-1/2 -right-6 badge-float">
+              <div class="glass-card rounded-lg px-3 py-1.5 text-xs font-semibold text-cyan-400 flex items-center gap-1.5">
+                <i class="devicon-react-original text-sm"></i> React
+              </div>
+            </div>
+            <div class="absolute bottom-24 -left-8 badge-float">
+              <div class="glass-card rounded-lg px-3 py-1.5 text-xs font-semibold text-orange-400 flex items-center gap-1.5">
+                <i data-lucide="database" class="w-3.5 h-3.5"></i> SQL
+              </div>
+            </div>
+            <div class="absolute bottom-12 -right-4 badge-float">
+              <div class="glass-card rounded-lg px-3 py-1.5 text-xs font-semibold text-slate-300 flex items-center gap-1.5">
+                <i class="devicon-linux-plain text-sm"></i> Linux
+              </div>
+            </div>
+            <div class="absolute -bottom-2 left-8 badge-float">
+              <div class="glass-card rounded-lg px-3 py-1.5 text-xs font-semibold text-red-400 flex items-center gap-1.5">
+                <i class="devicon-git-plain text-sm"></i> Git
+              </div>
+            </div>
+            <div class="absolute bottom-1/3 left-1/2 badge-float">
+              <div class="glass-card rounded-lg px-3 py-1.5 text-xs font-semibold text-purple-400 flex items-center gap-1.5">
+                <i data-lucide="network" class="w-3.5 h-3.5"></i> TCP/IP
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- MÉTRICAS PROFESIONALES                      -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="metricas" class="relative py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <!-- Metric 1 -->
+          <div class="glass-card rounded-xl p-6 text-center animate-on-scroll group">
+            <div class="w-12 h-12 mx-auto mb-3 rounded-lg bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
+              <i data-lucide="calendar-check" class="w-6 h-6 text-blue-400"></i>
+            </div>
+            <p class="text-3xl font-bold gradient-text counter-value" data-target="3">0</p>
+            <p class="text-xs text-slate-400 mt-0.5">+ años</p>
+            <p class="text-sm text-slate-300 mt-1 font-medium">Experiencia en soporte TIC</p>
+          </div>
+          <!-- Metric 2 -->
+          <div class="glass-card rounded-xl p-6 text-center animate-on-scroll group" style="transition-delay:0.1s">
+            <div class="w-12 h-12 mx-auto mb-3 rounded-lg bg-cyan-500/10 flex items-center justify-center group-hover:bg-cyan-500/20 transition-colors">
+              <i data-lucide="graduation-cap" class="w-6 h-6 text-cyan-400"></i>
+            </div>
+            <p class="text-2xl font-bold text-white">Ing. Sistemas</p>
+            <p class="text-sm text-slate-300 mt-1 font-medium">Formación profesional</p>
+          </div>
+          <!-- Metric 3 -->
+          <div class="glass-card rounded-xl p-6 text-center animate-on-scroll group" style="transition-delay:0.2s">
+            <div class="w-12 h-12 mx-auto mb-3 rounded-lg bg-purple-500/10 flex items-center justify-center group-hover:bg-purple-500/20 transition-colors">
+              <i data-lucide="layers" class="w-6 h-6 text-purple-400"></i>
+            </div>
+            <p class="text-2xl font-bold text-white">Full Stack</p>
+            <p class="text-sm text-slate-300 mt-1 font-medium">Desarrollo de aplicaciones</p>
+          </div>
+          <!-- Metric 4 -->
+          <div class="glass-card rounded-xl p-6 text-center animate-on-scroll group" style="transition-delay:0.3s">
+            <div class="w-12 h-12 mx-auto mb-3 rounded-lg bg-green-500/10 flex items-center justify-center group-hover:bg-green-500/20 transition-colors">
+              <i data-lucide="languages" class="w-6 h-6 text-green-400"></i>
+            </div>
+            <p class="text-3xl font-bold text-white">B1</p>
+            <p class="text-sm text-slate-300 mt-1 font-medium">Inglés certificado</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PERFIL                                      -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="perfil" class="relative py-20 sm:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section title -->
+        <div class="text-center mb-16 animate-on-scroll">
+          <p class="text-blue-400 font-mono text-sm mb-3 tracking-wider uppercase">Perfil profesional</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            Más que soporte. <span class="gradient-text">Más que código.</span>
+          </h2>
+        </div>
+
+        <!-- 3 Cards -->
+        <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+          <!-- Card 1: Soporte Técnico -->
+          <div class="glass-card rounded-2xl p-8 animate-on-scroll">
+            <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6">
+              <i data-lucide="wrench" class="w-7 h-7 text-blue-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Soporte Técnico</h3>
+            <p class="text-slate-400 leading-relaxed text-sm">
+              Experiencia solucionando problemas tecnológicos, atendiendo usuarios, realizando troubleshooting y manteniendo recursos tecnológicos.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 text-xs rounded-md bg-blue-500/10 text-blue-300 border border-blue-500/10">Troubleshooting</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-blue-500/10 text-blue-300 border border-blue-500/10">Redes</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-blue-500/10 text-blue-300 border border-blue-500/10">Hardware</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-blue-500/10 text-blue-300 border border-blue-500/10">Incidentes</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Desarrollo -->
+          <div class="glass-card rounded-2xl p-8 animate-on-scroll" style="transition-delay:0.15s">
+            <div class="w-14 h-14 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-6">
+              <i data-lucide="code-2" class="w-7 h-7 text-cyan-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Desarrollo de Software</h3>
+            <p class="text-slate-400 leading-relaxed text-sm">
+              Conocimientos en desarrollo web, backend, APIs, bases de datos y construcción de aplicaciones completas.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">Backend</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">Frontend</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">APIs REST</span>
+              <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">SQL</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Resolución de Problemas -->
+          <div class="glass-card rounded-2xl p-8 animate-on-scroll" style="transition-delay:0.3s">
+            <div class="w-14 h-14 rounded-xl bg-purple-500/10 flex items-center justify-center mb-6">
+              <i data-lucide="lightbulb" class="w-7 h-7 text-purple-400"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Resolución de Problemas</h3>
+            <p class="text-slate-400 leading-relaxed text-sm mb-4">
+              Mentalidad orientada a analizar, diagnosticar, investigar y resolver desafíos técnicos de forma eficiente.
+            </p>
+            <div class="space-y-2">
+              <div class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="search" class="w-3.5 h-3.5 text-purple-400"></i> Analizar</div>
+              <div class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="stethoscope" class="w-3.5 h-3.5 text-purple-400"></i> Diagnosticar</div>
+              <div class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="book-open" class="w-3.5 h-3.5 text-purple-400"></i> Investigar</div>
+              <div class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-400"></i> Resolver</div>
+              <div class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="file-text" class="w-3.5 h-3.5 text-purple-400"></i> Documentar</div>
+              <div class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="trending-up" class="w-3.5 h-3.5 text-purple-400"></i> Optimizar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- EXPERIENCIA                                 -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="experiencia" class="relative py-20 sm:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+          <p class="text-blue-400 font-mono text-sm mb-3 tracking-wider uppercase">Trayectoria</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            Experiencia <span class="gradient-text">Profesional</span>
+          </h2>
+        </div>
+
+        <!-- Timeline -->
+        <div class="relative max-w-4xl mx-auto">
+          <!-- Timeline line -->
+          <div class="absolute left-5 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/50 via-cyan-500/50 to-transparent md:transform md:-translate-x-px"></div>
+
+          <!-- Timeline Item 1: Analista TIC -->
+          <div class="relative mb-16 animate-on-scroll">
+            <div class="flex flex-col md:flex-row md:items-start gap-6 md:gap-0">
+              <!-- Left content (desktop) -->
+              <div class="hidden md:block md:w-1/2 md:pr-12 md:text-right">
+                <span class="inline-block px-3 py-1 text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-full mb-3">2022 – 2025</span>
+                <h3 class="text-2xl font-bold text-white mb-2">Analista TIC</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                  Experiencia en soporte tecnológico empresarial, brindando atención directa a usuarios y manteniendo la continuidad operativa de la infraestructura TI.
+                </p>
+                <div class="flex flex-wrap gap-2 justify-end">
+                  <span class="px-2 py-0.5 text-xs rounded bg-white/5 text-slate-300">Soporte técnico</span>
+                  <span class="px-2 py-0.5 text-xs rounded bg-white/5 text-slate-300">Diagnóstico HW/SW</span>
+                  <span class="px-2 py-0.5 text-xs rounded bg-white/5 text-slate-300">Troubleshooting</span>
+                  <span class="px-2 py-0.5 text-xs rounded bg-white/5 text-slate-300">Mantenimiento</span>
+                  <span class="px-2 py-0.5 text-xs rounded bg-white/5 text-slate-300">Instalación y config.</span>
+                  <span class="px-2 py-0.5 text-xs rounded bg-white/5 text-slate-300">Gestión de incidentes</span>
+                  <span class="px-2 py-0.5 text-xs rounded bg-white/5 text-slate-300">Conectividad</span>
+                  <span class="px-2 py-0.5 text-xs rounded bg-white/5 text-slate-300">Documentación</span>
+                  <span class="px-2 py-0.5 text-xs rounded bg-white/5 text-slate-300">Escalamiento</span>
+                </div>
+              </div>
+
+              <!-- Center dot -->
+              <div class="absolute left-5 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-dark-900 transform -translate-x-1/2 mt-1 z-10 shadow-lg shadow-blue-500/30"></div>
+
+              <!-- Right content (or mobile fallback) -->
+              <div class="pl-12 md:pl-0 md:w-1/2 md:pl-12">
+                <!-- Mobile only header -->
+                <div class="md:hidden mb-3">
+                  <span class="inline-block px-3 py-1 text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-full mb-2">2022 – 2025</span>
+                  <h3 class="text-xl font-bold text-white mb-2">Analista TIC</h3>
+                  <p class="text-slate-400 text-sm leading-relaxed mb-3">
+                    Experiencia en soporte tecnológico empresarial, brindando atención directa a usuarios y manteniendo la continuidad operativa.
+                  </p>
+                </div>
+                <div class="glass-card rounded-xl p-5">
+                  <p class="text-xs font-semibold text-blue-400 mb-3 uppercase tracking-wider">Tecnologías</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-blue-500/10 text-blue-300 border border-blue-500/10">Windows</span>
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-blue-500/10 text-blue-300 border border-blue-500/10">Linux</span>
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-blue-500/10 text-blue-300 border border-blue-500/10">TCP/IP</span>
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-blue-500/10 text-blue-300 border border-blue-500/10">LAN</span>
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-blue-500/10 text-blue-300 border border-blue-500/10">Hardware</span>
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-blue-500/10 text-blue-300 border border-blue-500/10">Software</span>
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-blue-500/10 text-blue-300 border border-blue-500/10">Troubleshooting</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2: Soporte Independiente -->
+          <div class="relative animate-on-scroll">
+            <div class="flex flex-col md:flex-row md:items-start gap-6 md:gap-0">
+              <!-- Left (empty on desktop, content on right) -->
+              <div class="hidden md:block md:w-1/2 md:pr-12">
+                <div class="glass-card rounded-xl p-5 text-left">
+                  <p class="text-xs font-semibold text-cyan-400 mb-3 uppercase tracking-wider">Servicios realizados</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">Diagnóstico y reparación</span>
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">Mantenimiento</span>
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">Sistemas operativos</span>
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">Drivers / Software</span>
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">Optimización</span>
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">Impresoras</span>
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">Wi-Fi</span>
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">Respaldo / Migración</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Center dot -->
+              <div class="absolute left-5 md:left-1/2 w-4 h-4 bg-cyan-500 rounded-full border-4 border-dark-900 transform -translate-x-1/2 mt-1 z-10 shadow-lg shadow-cyan-500/30"></div>
+
+              <!-- Right content -->
+              <div class="pl-12 md:pl-0 md:w-1/2 md:pl-12">
+                <span class="inline-block px-3 py-1 text-xs font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 rounded-full mb-3">Experiencia independiente</span>
+                <h3 class="text-2xl font-bold text-white mb-2">Soporte Técnico Independiente</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                  Servicios técnicos independientes: diagnóstico, reparación, mantenimiento, configuración de redes, respaldo de información y atención de clientes a domicilio.
+                </p>
+                <!-- Mobile services -->
+                <div class="md:hidden glass-card rounded-xl p-5">
+                  <p class="text-xs font-semibold text-cyan-400 mb-3 uppercase tracking-wider">Servicios realizados</p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">Diagnóstico y reparación</span>
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">Mantenimiento</span>
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">Sistemas operativos</span>
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">Wi-Fi</span>
+                    <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">Respaldo</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SOPORTE TÉCNICO                             -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="soporte" class="relative py-20 sm:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+          <p class="text-blue-400 font-mono text-sm mb-3 tracking-wider uppercase">Área de expertise</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            Soporte Técnico <span class="gradient-text">& Troubleshooting</span>
+          </h2>
+          <p class="text-slate-400 mt-4 text-lg font-light">Diagnosticar. Resolver. Documentar. Mejorar.</p>
+        </div>
+
+        <!-- Flow Visualization -->
+        <div class="max-w-lg mx-auto mb-20 animate-on-scroll">
+          <!-- Step 1 -->
+          <div class="glass-card rounded-xl p-5 flex items-center gap-4 group cursor-default">
+            <div class="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center shrink-0 group-hover:bg-red-500/20 transition-colors">
+              <i data-lucide="alert-triangle" class="w-6 h-6 text-red-400"></i>
+            </div>
+            <div>
+              <p class="font-bold text-white text-sm">Incidente</p>
+              <p class="text-xs text-slate-400">Identificación del problema reportado</p>
+            </div>
+          </div>
+          <div class="flow-connector"></div>
+          <!-- Step 2 -->
+          <div class="glass-card rounded-xl p-5 flex items-center gap-4 group cursor-default">
+            <div class="w-12 h-12 rounded-lg bg-yellow-500/10 flex items-center justify-center shrink-0 group-hover:bg-yellow-500/20 transition-colors">
+              <i data-lucide="search" class="w-6 h-6 text-yellow-400"></i>
+            </div>
+            <div>
+              <p class="font-bold text-white text-sm">Diagnóstico</p>
+              <p class="text-xs text-slate-400">Análisis y aislamiento de la causa raíz</p>
+            </div>
+          </div>
+          <div class="flow-connector"></div>
+          <!-- Step 3 -->
+          <div class="glass-card rounded-xl p-5 flex items-center gap-4 group cursor-default">
+            <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center shrink-0 group-hover:bg-blue-500/20 transition-colors">
+              <i data-lucide="settings" class="w-6 h-6 text-blue-400"></i>
+            </div>
+            <div>
+              <p class="font-bold text-white text-sm">Troubleshooting</p>
+              <p class="text-xs text-slate-400">Aplicación de soluciones técnicas</p>
+            </div>
+          </div>
+          <div class="flow-connector"></div>
+          <!-- Step 4 -->
+          <div class="glass-card rounded-xl p-5 flex items-center gap-4 group cursor-default">
+            <div class="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center shrink-0 group-hover:bg-green-500/20 transition-colors">
+              <i data-lucide="check-circle" class="w-6 h-6 text-green-400"></i>
+            </div>
+            <div>
+              <p class="font-bold text-white text-sm">Solución</p>
+              <p class="text-xs text-slate-400">Implementación y resolución del incidente</p>
+            </div>
+          </div>
+          <div class="flow-connector"></div>
+          <!-- Step 5 -->
+          <div class="glass-card rounded-xl p-5 flex items-center gap-4 group cursor-default">
+            <div class="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center shrink-0 group-hover:bg-cyan-500/20 transition-colors">
+              <i data-lucide="shield-check" class="w-6 h-6 text-cyan-400"></i>
+            </div>
+            <div>
+              <p class="font-bold text-white text-sm">Validación</p>
+              <p class="text-xs text-slate-400">Confirmación de la solución aplicada</p>
+            </div>
+          </div>
+          <div class="flow-connector"></div>
+          <!-- Step 6 -->
+          <div class="glass-card rounded-xl p-5 flex items-center gap-4 group cursor-default">
+            <div class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center shrink-0 group-hover:bg-purple-500/20 transition-colors">
+              <i data-lucide="file-text" class="w-6 h-6 text-purple-400"></i>
+            </div>
+            <div>
+              <p class="font-bold text-white text-sm">Documentación</p>
+              <p class="text-xs text-slate-400">Registro y base de conocimiento</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categories Grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- OS -->
+          <div class="glass-card rounded-2xl p-6 animate-on-scroll">
+            <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4">
+              <i data-lucide="monitor" class="w-6 h-6 text-blue-400"></i>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-3">Sistemas Operativos</h4>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="chevron-right" class="w-3 h-3 text-blue-400"></i> Windows</li>
+              <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="chevron-right" class="w-3 h-3 text-blue-400"></i> Linux</li>
+            </ul>
+          </div>
+          <!-- Redes -->
+          <div class="glass-card rounded-2xl p-6 animate-on-scroll" style="transition-delay:0.1s">
+            <div class="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center mb-4">
+              <i data-lucide="network" class="w-6 h-6 text-cyan-400"></i>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-3">Redes</h4>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="chevron-right" class="w-3 h-3 text-cyan-400"></i> LAN / WAN</li>
+              <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="chevron-right" class="w-3 h-3 text-cyan-400"></i> TCP/IP</li>
+              <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="chevron-right" class="w-3 h-3 text-cyan-400"></i> Modelo OSI</li>
+              <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="chevron-right" class="w-3 h-3 text-cyan-400"></i> Wi-Fi</li>
+              <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="chevron-right" class="w-3 h-3 text-cyan-400"></i> Conectividad</li>
+            </ul>
+          </div>
+          <!-- Hardware -->
+          <div class="glass-card rounded-2xl p-6 animate-on-scroll" style="transition-delay:0.2s">
+            <div class="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
+              <i data-lucide="cpu" class="w-6 h-6 text-orange-400"></i>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-3">Hardware</h4>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="chevron-right" class="w-3 h-3 text-orange-400"></i> PC de escritorio</li>
+              <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="chevron-right" class="w-3 h-3 text-orange-400"></i> Laptops</li>
+              <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="chevron-right" class="w-3 h-3 text-orange-400"></i> Periféricos</li>
+              <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="chevron-right" class="w-3 h-3 text-orange-400"></i> Impresoras</li>
+            </ul>
+          </div>
+          <!-- Gestión -->
+          <div class="glass-card rounded-2xl p-6 animate-on-scroll" style="transition-delay:0.3s">
+            <div class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4">
+              <i data-lucide="clipboard-list" class="w-6 h-6 text-purple-400"></i>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-3">Gestión</h4>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="chevron-right" class="w-3 h-3 text-purple-400"></i> Incidentes</li>
+              <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="chevron-right" class="w-3 h-3 text-purple-400"></i> Requerimientos</li>
+              <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="chevron-right" class="w-3 h-3 text-purple-400"></i> Escalamiento</li>
+              <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="chevron-right" class="w-3 h-3 text-purple-400"></i> Seguimiento</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- FULL STACK DEVELOPMENT                      -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="fullstack" class="relative py-20 sm:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+          <p class="text-cyan-400 font-mono text-sm mb-3 tracking-wider uppercase">Desarrollo</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            Full Stack <span class="gradient-text">Development</span>
+          </h2>
+          <p class="text-slate-400 mt-4 text-lg font-light max-w-2xl mx-auto">
+            Construyo soluciones desde la interfaz hasta la lógica de negocio y los datos.
+          </p>
+        </div>
+
+        <!-- Architecture Diagram -->
+        <div class="max-w-xl mx-auto animate-on-scroll">
+          <!-- Frontend Layer -->
+          <div class="arch-layer glass-card rounded-xl p-6 text-center glow-blue">
+            <p class="text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">Frontend</p>
+            <div class="flex items-center justify-center gap-4">
+              <div class="flex items-center gap-1.5 text-sm text-white"><i class="devicon-react-original text-cyan-400 text-lg"></i> React</div>
+              <div class="flex items-center gap-1.5 text-sm text-white"><i class="devicon-javascript-plain text-yellow-400 text-lg"></i> JavaScript</div>
+              <div class="flex items-center gap-1.5 text-sm text-white"><i class="devicon-html5-plain text-orange-400 text-lg"></i> HTML5</div>
+              <div class="flex items-center gap-1.5 text-sm text-white"><i class="devicon-css3-plain text-blue-400 text-lg"></i> CSS3</div>
+            </div>
+          </div>
+
+          <div class="arch-connector"></div>
+
+          <!-- API Layer -->
+          <div class="arch-layer glass-card rounded-xl p-5 text-center border-cyan-500/20">
+            <div class="flex items-center justify-center gap-2">
+              <i data-lucide="arrow-left-right" class="w-4 h-4 text-cyan-400"></i>
+              <p class="text-sm font-bold text-cyan-400 uppercase tracking-widest">API REST</p>
+              <i data-lucide="arrow-left-right" class="w-4 h-4 text-cyan-400"></i>
+            </div>
+          </div>
+
+          <div class="arch-connector"></div>
+
+          <!-- Backend Layer -->
+          <div class="arch-layer glass-card rounded-xl p-6 text-center glow-cyan">
+            <p class="text-xs font-bold text-green-400 uppercase tracking-widest mb-2">Backend</p>
+            <div class="flex items-center justify-center gap-4">
+              <div class="flex items-center gap-1.5 text-sm text-white"><i class="devicon-java-plain text-red-400 text-lg"></i> Java</div>
+              <div class="flex items-center gap-1.5 text-sm text-white"><i class="devicon-spring-plain text-green-400 text-lg"></i> Spring Boot</div>
+              <div class="flex items-center gap-1.5 text-sm text-white"><i class="devicon-python-plain text-yellow-300 text-lg"></i> Python</div>
+              <div class="flex items-center gap-1.5 text-sm text-white"><i class="devicon-django-plain text-green-300 text-lg"></i> Django</div>
+            </div>
+          </div>
+
+          <div class="arch-connector"></div>
+
+          <!-- Database Layer -->
+          <div class="arch-layer glass-card rounded-xl p-6 text-center">
+            <p class="text-xs font-bold text-orange-400 uppercase tracking-widest mb-2">Database</p>
+            <div class="flex items-center justify-center gap-4">
+              <div class="flex items-center gap-1.5 text-sm text-white"><i class="devicon-postgresql-plain text-blue-300 text-lg"></i> PostgreSQL</div>
+              <div class="flex items-center gap-1.5 text-sm text-white"><i class="devicon-mysql-plain text-blue-400 text-lg"></i> MySQL</div>
+              <div class="flex items-center gap-1.5 text-sm text-white"><i data-lucide="database" class="w-4 h-4 text-orange-400"></i> SQL</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- TECH STACK                                  -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="techstack" class="relative py-20 sm:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+          <p class="text-blue-400 font-mono text-sm mb-3 tracking-wider uppercase">Tecnologías</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            Tech <span class="gradient-text">Stack</span>
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Backend -->
+          <div class="animate-on-scroll">
+            <h4 class="text-xs font-bold text-blue-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+              <i data-lucide="server" class="w-4 h-4"></i> Backend
+            </h4>
+            <div class="space-y-3">
+              <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+                <i class="devicon-java-plain text-2xl text-red-400"></i>
+                <div><p class="text-sm font-semibold text-white">Java</p><p class="text-xs text-slate-400">Lenguaje principal backend</p></div>
+              </div>
+              <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+                <i class="devicon-spring-plain text-2xl text-green-400"></i>
+                <div><p class="text-sm font-semibold text-white">Spring Boot</p><p class="text-xs text-slate-400">Framework empresarial</p></div>
+              </div>
+              <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+                <i data-lucide="arrow-left-right" class="w-6 h-6 text-cyan-400"></i>
+                <div><p class="text-sm font-semibold text-white">REST APIs</p><p class="text-xs text-slate-400">Diseño de servicios web</p></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Frontend -->
+          <div class="animate-on-scroll" style="transition-delay:0.1s">
+            <h4 class="text-xs font-bold text-cyan-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+              <i data-lucide="layout" class="w-4 h-4"></i> Frontend
+            </h4>
+            <div class="space-y-3">
+              <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+                <i class="devicon-html5-plain text-2xl text-orange-400"></i>
+                <div><p class="text-sm font-semibold text-white">HTML5</p><p class="text-xs text-slate-400">Estructura semántica</p></div>
+              </div>
+              <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+                <i class="devicon-css3-plain text-2xl text-blue-400"></i>
+                <div><p class="text-sm font-semibold text-white">CSS3</p><p class="text-xs text-slate-400">Estilos y diseño</p></div>
+              </div>
+              <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+                <i class="devicon-javascript-plain text-2xl text-yellow-400"></i>
+                <div><p class="text-sm font-semibold text-white">JavaScript</p><p class="text-xs text-slate-400">Lógica e interactividad</p></div>
+              </div>
+              <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+                <i class="devicon-react-original text-2xl text-cyan-400"></i>
+                <div><p class="text-sm font-semibold text-white">React</p><p class="text-xs text-slate-400">Interfaces dinámicas</p></div>
+              </div>
+              <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+                <i class="devicon-tailwindcss-original text-2xl text-teal-400"></i>
+                <div><p class="text-sm font-semibold text-white">Tailwind CSS</p><p class="text-xs text-slate-400">Framework de utilidades</p></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bases de datos -->
+          <div class="animate-on-scroll" style="transition-delay:0.2s">
+            <h4 class="text-xs font-bold text-orange-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+              <i data-lucide="database" class="w-4 h-4"></i> Bases de datos
+            </h4>
+            <div class="space-y-3">
+              <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+                <i class="devicon-mysql-plain text-2xl text-blue-400"></i>
+                <div><p class="text-sm font-semibold text-white">MySQL</p><p class="text-xs text-slate-400">Base de datos relacional</p></div>
+              </div>
+              <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+                <i class="devicon-postgresql-plain text-2xl text-blue-300"></i>
+                <div><p class="text-sm font-semibold text-white">PostgreSQL</p><p class="text-xs text-slate-400">BD avanzada open source</p></div>
+              </div>
+              <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+                <i data-lucide="table-2" class="w-6 h-6 text-orange-400"></i>
+                <div><p class="text-sm font-semibold text-white">SQL</p><p class="text-xs text-slate-400">Lenguaje de consultas</p></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dev Tools -->
+          <div class="animate-on-scroll" style="transition-delay:0.3s">
+            <h4 class="text-xs font-bold text-green-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+              <i data-lucide="terminal" class="w-4 h-4"></i> Dev Tools
+            </h4>
+            <div class="space-y-3">
+              <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+                <i class="devicon-git-plain text-2xl text-red-400"></i>
+                <div><p class="text-sm font-semibold text-white">Git</p><p class="text-xs text-slate-400">Control de versiones</p></div>
+              </div>
+              <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+                <i class="devicon-github-original text-2xl text-white"></i>
+                <div><p class="text-sm font-semibold text-white">GitHub</p><p class="text-xs text-slate-400">Repositorios y colaboración</p></div>
+              </div>
+              <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+                <i class="devicon-linux-plain text-2xl text-slate-300"></i>
+                <div><p class="text-sm font-semibold text-white">Linux</p><p class="text-xs text-slate-400">Administración de sistemas</p></div>
+              </div>
+              <div class="glass-card rounded-xl p-4 flex items-center gap-3">
+                <i data-lucide="terminal-square" class="w-6 h-6 text-green-400"></i>
+                <div><p class="text-sm font-semibold text-white">Terminal</p><p class="text-xs text-slate-400">Línea de comandos</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- TECHNICAL SKILLS                            -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="skills" class="relative py-20 sm:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+          <p class="text-blue-400 font-mono text-sm mb-3 tracking-wider uppercase">Dashboard</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            Technical <span class="gradient-text">Skills</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 max-w-4xl mx-auto mb-8">
+          <!-- Support -->
+          <div class="text-center animate-on-scroll">
+            <div class="relative w-24 h-24 mx-auto mb-3">
+              <svg class="skill-ring w-full h-full" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#1E293B" stroke-width="6"/>
+                <circle class="progress" cx="50" cy="50" r="45" fill="none" stroke="url(#grad-blue)" stroke-width="6" stroke-linecap="round" data-value="85"/>
+              </svg>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <i data-lucide="headphones" class="w-6 h-6 text-blue-400"></i>
+              </div>
+            </div>
+            <p class="text-sm font-semibold text-white">Support</p>
+          </div>
+          <!-- Networking -->
+          <div class="text-center animate-on-scroll" style="transition-delay:0.1s">
+            <div class="relative w-24 h-24 mx-auto mb-3">
+              <svg class="skill-ring w-full h-full" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#1E293B" stroke-width="6"/>
+                <circle class="progress" cx="50" cy="50" r="45" fill="none" stroke="url(#grad-cyan)" stroke-width="6" stroke-linecap="round" data-value="70"/>
+              </svg>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <i data-lucide="network" class="w-6 h-6 text-cyan-400"></i>
+              </div>
+            </div>
+            <p class="text-sm font-semibold text-white">Networking</p>
+          </div>
+          <!-- Backend -->
+          <div class="text-center animate-on-scroll" style="transition-delay:0.2s">
+            <div class="relative w-24 h-24 mx-auto mb-3">
+              <svg class="skill-ring w-full h-full" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#1E293B" stroke-width="6"/>
+                <circle class="progress" cx="50" cy="50" r="45" fill="none" stroke="url(#grad-green)" stroke-width="6" stroke-linecap="round" data-value="65"/>
+              </svg>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <i data-lucide="server" class="w-6 h-6 text-green-400"></i>
+              </div>
+            </div>
+            <p class="text-sm font-semibold text-white">Backend</p>
+          </div>
+          <!-- Frontend -->
+          <div class="text-center animate-on-scroll" style="transition-delay:0.3s">
+            <div class="relative w-24 h-24 mx-auto mb-3">
+              <svg class="skill-ring w-full h-full" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#1E293B" stroke-width="6"/>
+                <circle class="progress" cx="50" cy="50" r="45" fill="none" stroke="url(#grad-purple)" stroke-width="6" stroke-linecap="round" data-value="60"/>
+              </svg>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <i data-lucide="layout" class="w-6 h-6 text-purple-400"></i>
+              </div>
+            </div>
+            <p class="text-sm font-semibold text-white">Frontend</p>
+          </div>
+          <!-- Databases -->
+          <div class="text-center animate-on-scroll col-span-2 sm:col-span-1" style="transition-delay:0.4s">
+            <div class="relative w-24 h-24 mx-auto mb-3">
+              <svg class="skill-ring w-full h-full" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="#1E293B" stroke-width="6"/>
+                <circle class="progress" cx="50" cy="50" r="45" fill="none" stroke="url(#grad-orange)" stroke-width="6" stroke-linecap="round" data-value="65"/>
+              </svg>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <i data-lucide="database" class="w-6 h-6 text-orange-400"></i>
+              </div>
+            </div>
+            <p class="text-sm font-semibold text-white">Databases</p>
+          </div>
+        </div>
+
+        <p class="text-center text-xs text-slate-500 italic animate-on-scroll">
+          Representación visual de áreas de enfoque técnico, no porcentaje de certificación.
+        </p>
+      </div>
+
+      <!-- SVG Gradients for rings -->
+      <svg class="absolute w-0 h-0">
+        <defs>
+          <linearGradient id="grad-blue" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#60A5FA"/></linearGradient>
+          <linearGradient id="grad-cyan" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#06B6D4"/><stop offset="100%" stop-color="#22D3EE"/></linearGradient>
+          <linearGradient id="grad-green" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#22C55E"/><stop offset="100%" stop-color="#4ADE80"/></linearGradient>
+          <linearGradient id="grad-purple" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#A855F7"/><stop offset="100%" stop-color="#C084FC"/></linearGradient>
+          <linearGradient id="grad-orange" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F97316"/><stop offset="100%" stop-color="#FB923C"/></linearGradient>
+        </defs>
+      </svg>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- PROYECTOS                                   -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="proyectos" class="relative py-20 sm:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+          <p class="text-blue-400 font-mono text-sm mb-3 tracking-wider uppercase">Portfolio</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            Proyectos <span class="gradient-text">Destacados</span>
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Project 1 -->
+          <div class="glass-card rounded-2xl overflow-hidden animate-on-scroll group">
+            <div class="h-44 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 flex items-center justify-center relative overflow-hidden">
+              <div class="absolute inset-0 bg-dark-800/50 group-hover:bg-dark-800/30 transition-colors"></div>
+              <i data-lucide="code-2" class="w-16 h-16 text-blue-400/30 group-hover:text-blue-400/50 transition-colors relative z-10"></i>
+            </div>
+            <div class="p-6">
+              <h4 class="text-lg font-bold text-white mb-2">Aplicación Web Full Stack</h4>
+              <p class="text-sm text-slate-400 mb-4">Aplicación web con arquitectura completa: frontend en React, backend con Spring Boot y base de datos PostgreSQL.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-2 py-0.5 text-xs rounded bg-blue-500/10 text-blue-300">Java</span>
+                <span class="px-2 py-0.5 text-xs rounded bg-blue-500/10 text-blue-300">Spring Boot</span>
+                <span class="px-2 py-0.5 text-xs rounded bg-blue-500/10 text-blue-300">React</span>
+                <span class="px-2 py-0.5 text-xs rounded bg-blue-500/10 text-blue-300">PostgreSQL</span>
+              </div>
+              <div class="flex gap-3">
+                <a href="[AGREGAR URL PROYECTO]" class="text-sm text-blue-400 hover:text-blue-300 flex items-center gap-1 transition-colors" target="_blank" rel="noopener">
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Demo
+                </a>
+                <a href="[AGREGAR GITHUB]" class="text-sm text-slate-400 hover:text-white flex items-center gap-1 transition-colors" target="_blank" rel="noopener">
+                  <i data-lucide="github" class="w-3.5 h-3.5"></i> Código
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="glass-card rounded-2xl overflow-hidden animate-on-scroll group" style="transition-delay:0.15s">
+            <div class="h-44 bg-gradient-to-br from-green-500/10 to-cyan-500/10 flex items-center justify-center relative overflow-hidden">
+              <div class="absolute inset-0 bg-dark-800/50 group-hover:bg-dark-800/30 transition-colors"></div>
+              <i data-lucide="server" class="w-16 h-16 text-green-400/30 group-hover:text-green-400/50 transition-colors relative z-10"></i>
+            </div>
+            <div class="p-6">
+              <h4 class="text-lg font-bold text-white mb-2">API REST Backend</h4>
+              <p class="text-sm text-slate-400 mb-4">Servicio backend RESTful con autenticación, CRUD completo y conexión a base de datos relacional.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-2 py-0.5 text-xs rounded bg-green-500/10 text-green-300">Python</span>
+                <span class="px-2 py-0.5 text-xs rounded bg-green-500/10 text-green-300">Django</span>
+                <span class="px-2 py-0.5 text-xs rounded bg-green-500/10 text-green-300">MySQL</span>
+                <span class="px-2 py-0.5 text-xs rounded bg-green-500/10 text-green-300">REST API</span>
+              </div>
+              <div class="flex gap-3">
+                <a href="[AGREGAR URL PROYECTO]" class="text-sm text-blue-400 hover:text-blue-300 flex items-center gap-1 transition-colors" target="_blank" rel="noopener">
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Demo
+                </a>
+                <a href="[AGREGAR GITHUB]" class="text-sm text-slate-400 hover:text-white flex items-center gap-1 transition-colors" target="_blank" rel="noopener">
+                  <i data-lucide="github" class="w-3.5 h-3.5"></i> Código
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="glass-card rounded-2xl overflow-hidden animate-on-scroll group" style="transition-delay:0.3s">
+            <div class="h-44 bg-gradient-to-br from-purple-500/10 to-blue-500/10 flex items-center justify-center relative overflow-hidden">
+              <div class="absolute inset-0 bg-dark-800/50 group-hover:bg-dark-800/30 transition-colors"></div>
+              <i data-lucide="globe" class="w-16 h-16 text-purple-400/30 group-hover:text-purple-400/50 transition-colors relative z-10"></i>
+            </div>
+            <div class="p-6">
+              <h4 class="text-lg font-bold text-white mb-2">Portfolio Web</h4>
+              <p class="text-sm text-slate-400 mb-4">Portfolio profesional con diseño premium, animaciones, responsive design y optimización SEO.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-2 py-0.5 text-xs rounded bg-purple-500/10 text-purple-300">HTML5</span>
+                <span class="px-2 py-0.5 text-xs rounded bg-purple-500/10 text-purple-300">Tailwind CSS</span>
+                <span class="px-2 py-0.5 text-xs rounded bg-purple-500/10 text-purple-300">JavaScript</span>
+              </div>
+              <div class="flex gap-3">
+                <a href="[AGREGAR GITHUB]" class="text-sm text-slate-400 hover:text-white flex items-center gap-1 transition-colors" target="_blank" rel="noopener">
+                  <i data-lucide="github" class="w-3.5 h-3.5"></i> Código
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- FORMACIÓN                                   -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="formacion" class="relative py-20 sm:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+          <p class="text-blue-400 font-mono text-sm mb-3 tracking-wider uppercase">Educación</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            Formación <span class="gradient-text">Académica</span>
+          </h2>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-6">
+          <!-- Ingeniería de Sistemas -->
+          <div class="glass-card rounded-2xl p-8 animate-on-scroll">
+            <div class="flex items-start gap-5">
+              <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center shrink-0">
+                <i data-lucide="graduation-cap" class="w-7 h-7 text-blue-400"></i>
+              </div>
+              <div class="flex-1">
+                <div class="flex flex-wrap items-center gap-3 mb-2">
+                  <h4 class="text-xl font-bold text-white">Ingeniería de Sistemas</h4>
+                  <span class="px-3 py-0.5 text-xs font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-full">Profesional</span>
+                </div>
+                <p class="text-slate-400 text-sm mb-1">UNISANGIL – Chiquinquirá</p>
+                <p class="text-blue-400 text-sm font-semibold">2026</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Diplomado -->
+          <div class="glass-card rounded-2xl p-8 animate-on-scroll" style="transition-delay:0.15s">
+            <div class="flex items-start gap-5">
+              <div class="w-14 h-14 rounded-xl bg-cyan-500/10 flex items-center justify-center shrink-0">
+                <i data-lucide="award" class="w-7 h-7 text-cyan-400"></i>
+              </div>
+              <div class="flex-1">
+                <h4 class="text-xl font-bold text-white mb-2">Diplomado en Programación en Java</h4>
+                <p class="text-slate-400 text-sm mb-3">Politécnico de Colombia</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">Java</span>
+                  <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">POO</span>
+                  <span class="px-2.5 py-1 text-xs rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/10">Desarrollo de software</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- CURSOS DESTACADOS                           -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="cursos" class="relative py-20 sm:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+          <p class="text-cyan-400 font-mono text-sm mb-3 tracking-wider uppercase">Aprendizaje continuo</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            Cursos <span class="gradient-text">Destacados</span>
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <!-- Course 1 -->
+          <div class="glass-card rounded-xl p-6 animate-on-scroll">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center">
+                <i class="devicon-git-plain text-lg text-red-400"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">Curso Profesional de Git y GitHub</h4>
+                <p class="text-xs text-slate-400">Platzi · 2023</p>
+              </div>
+            </div>
+            <p class="text-xs text-slate-500 font-mono break-all">Credencial: 000598d5-2e66-42bf-bb27-3af50a20ea7a</p>
+          </div>
+          <!-- Course 2 -->
+          <div class="glass-card rounded-xl p-6 animate-on-scroll" style="transition-delay:0.1s">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center">
+                <i data-lucide="terminal" class="w-5 h-5 text-green-400"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">Curso de Introducción a la Terminal y Línea de Comandos</h4>
+                <p class="text-xs text-slate-400">Platzi · 2023</p>
+              </div>
+            </div>
+            <p class="text-xs text-slate-500 font-mono break-all">Credencial: d5a23062-e76a-4a07-91f7-08db1605b90b</p>
+          </div>
+          <!-- Course 3 -->
+          <div class="glass-card rounded-xl p-6 animate-on-scroll" style="transition-delay:0.2s">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center">
+                <i class="devicon-python-plain text-lg text-yellow-400"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">Curso de Fundamentos de Python</h4>
+                <p class="text-xs text-slate-400">Platzi · 2023</p>
+              </div>
+            </div>
+            <p class="text-xs text-slate-500 font-mono break-all">Credencial: c133aa7e-4b81-4fd1-aae4-b884b431d853</p>
+          </div>
+          <!-- Course 4 -->
+          <div class="glass-card rounded-xl p-6 animate-on-scroll" style="transition-delay:0.3s">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center">
+                <i class="devicon-python-plain text-lg text-yellow-400"></i>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white">Curso de Python: PIP y Entornos Virtuales</h4>
+                <p class="text-xs text-slate-400">Platzi · 2023</p>
+              </div>
+            </div>
+            <p class="text-xs text-slate-500 font-mono break-all">Credencial: 3505c957-5def-4c71-a008-17fab7eb078d</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- ENGLISH                                     -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="english" class="relative py-20 sm:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-on-scroll">
+          <p class="text-blue-400 font-mono text-sm mb-3 tracking-wider uppercase">Language</p>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            English <span class="gradient-text">B1 Certified</span>
+          </h2>
+        </div>
+
+        <div class="max-w-2xl mx-auto animate-on-scroll">
+          <!-- Level scale -->
+          <div class="glass-card rounded-2xl p-8">
+            <div class="flex items-center justify-between mb-8">
+              <div class="flex gap-1.5 flex-1">
+                <div class="flex-1 h-2.5 rounded-full bg-blue-500/20 relative overflow-hidden">
+                  <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-400 rounded-full"></div>
+                  <p class="text-xs text-center text-slate-400 mt-4">A1</p>
+                </div>
+                <div class="flex-1 h-2.5 rounded-full bg-blue-500/20 relative overflow-hidden">
+                  <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full"></div>
+                  <p class="text-xs text-center text-slate-400 mt-4">A2</p>
+                </div>
+                <div class="flex-1 h-2.5 rounded-full bg-cyan-500/20 relative overflow-hidden">
+                  <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full animate-pulse"></div>
+                  <p class="text-xs text-center text-cyan-400 mt-4 font-bold">B1 ✓</p>
+                </div>
+                <div class="flex-1 h-2.5 rounded-full bg-white/5">
+                  <p class="text-xs text-center text-slate-500 mt-4">B2</p>
+                </div>
+                <div class="flex-1 h-2.5 rounded-full bg-white/5">
+                  <p class="text-xs text-center text-slate-500 mt-4">C1</p>
+                </div>
+                <div class="flex-1 h-2.5 rounded-full bg-white/5">
+                  <p class="text-xs text-center text-slate-500 mt-4">C2</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 mt-10">
+              <div class="text-center p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                <i data-lucide="book-open" class="w-6 h-6 text-blue-400 mx-auto mb-2"></i>
+                <p class="text-sm font-semibold text-white">Reading</p>
+              </div>
+              <div class="text-center p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                <i data-lucide="pen-tool" class="w-6 h-6 text-cyan-400 mx-auto mb-2"></i>
+                <p class="text-sm font-semibold text-white">Writing</p>
+              </div>
+              <div class="text-center p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                <i data-lucide="mic" class="w-6 h-6 text-green-400 mx-auto mb-2"></i>
+                <p class="text-sm font-semibold text-white">Speaking</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- CONTACTO                                    -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section id="contacto" class="relative py-20 sm:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center animate-on-scroll">
+          <p class="text-blue-400 font-mono text-sm mb-3 tracking-wider uppercase">Hablemos</p>
+          <h2 class="text-3xl sm:text-4xl font-bold mb-6">
+            ¿Buscas un perfil técnico que pueda <span class="gradient-text">resolver problemas y construir soluciones</span>?
+          </h2>
+          <p class="text-slate-400 text-lg mb-10 leading-relaxed">
+            Estoy interesado en oportunidades relacionadas con Soporte Técnico, Infraestructura, Desarrollo Backend y Desarrollo Full Stack.
+          </p>
+
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="YOUR_LINKEDIN_URL" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-lg hover:from-blue-500 hover:to-blue-400 transition-all duration-300 shadow-lg shadow-blue-500/20" aria-label="Visitar perfil de LinkedIn" target="_blank" rel="noopener">
+              <i data-lucide="linkedin" class="w-5 h-5"></i> LinkedIn
+            </a>
+            <a href="YOUR_GITHUB_URL" class="inline-flex items-center gap-2 px-6 py-3 border border-white/10 text-white font-semibold rounded-lg hover:bg-white/5 hover:border-white/20 transition-all duration-300" aria-label="Visitar perfil de GitHub" target="_blank" rel="noopener">
+              <i data-lucide="github" class="w-5 h-5"></i> GitHub
+            </a>
+            <a href="mailto:YOUR_EMAIL" class="inline-flex items-center gap-2 px-6 py-3 border border-white/10 text-white font-semibold rounded-lg hover:bg-white/5 hover:border-white/20 transition-all duration-300" aria-label="Enviar correo electrónico">
+              <i data-lucide="mail" class="w-5 h-5"></i> Email
+            </a>
+            <a href="YOUR_CV_URL" class="inline-flex items-center gap-2 px-6 py-3 border border-lime-500/20 text-lime-400 font-semibold rounded-lg hover:bg-lime-500/10 hover:border-lime-500/30 transition-all duration-300" aria-label="Descargar curriculum vitae" target="_blank" rel="noopener">
+              <i data-lucide="download" class="w-5 h-5"></i> Descargar CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- FOOTER                                      -->
+  <!-- ═══════════════════════════════════════════ -->
+  <footer class="border-t border-white/5 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-lg font-bold gradient-text mb-1">Daniel Silva</p>
+      <p class="text-sm text-slate-400 mb-4">Ingeniero de Sistemas</p>
+      <p class="text-xs text-slate-500 mb-2">&copy; 2026 Daniel Silva</p>
+      <p class="text-xs text-slate-600">Built with HTML · Tailwind CSS · JavaScript</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- JAVASCRIPT                                  -->
+  <!-- ═══════════════════════════════════════════ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // ── Initialize Lucide icons ──
+      lucide.createIcons();
+
+      // ── Scroll animations (Intersection Observer) ──
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -80px 0px',
+        threshold: 0.1
+      };
+
+      const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            // Animate skill rings when visible
+            const rings = entry.target.querySelectorAll('.progress');
+            rings.forEach(ring => {
+              const val = parseInt(ring.dataset.value);
+              const circumference = 2 * Math.PI * 45; // r=45
+              const offset = circumference - (val / 100) * circumference;
+              ring.style.strokeDashoffset = offset;
+            });
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        scrollObserver.observe(el);
+      });
+
+      // ── Skill rings in section ──
+      const skillObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const rings = entry.target.querySelectorAll('.progress');
+            rings.forEach(ring => {
+              const val = parseInt(ring.dataset.value);
+              const circumference = 2 * Math.PI * 45;
+              const offset = circumference - (val / 100) * circumference;
+              setTimeout(() => { ring.style.strokeDashoffset = offset; }, 300);
+            });
+          }
+        });
+      }, { threshold: 0.3 });
+
+      const skillsSection = document.getElementById('skills');
+      if (skillsSection) skillObserver.observe(skillsSection);
+
+      // ── Navbar active section ──
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link[data-section]');
+
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              link.classList.toggle('active', link.dataset.section === id);
+            });
+          }
+        });
+      }, {
+        rootMargin: '-40% 0px -60% 0px',
+        threshold: 0
+      });
+
+      sections.forEach(section => navObserver.observe(section));
+
+      // ── Counter animation ──
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.dataset.target);
+            if (isNaN(target)) return;
+            let current = 0;
+            const increment = Math.ceil(target / 40);
+            const timer = setInterval(() => {
+              current += increment;
+              if (current >= target) {
+                current = target;
+                clearInterval(timer);
+              }
+              el.textContent = current;
+            }, 40);
+            counterObserver.unobserve(el);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      document.querySelectorAll('.counter-value[data-target]').forEach(el => {
+        counterObserver.observe(el);
+      });
+
+      // ── Mobile menu ──
+      const menuToggle = document.getElementById('menu-toggle');
+      const menuClose = document.getElementById('menu-close');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+          mobileMenu.classList.add('open');
+          menuToggle.setAttribute('aria-expanded', 'true');
+          document.body.style.overflow = 'hidden';
+        });
+
+        const closeMenu = () => {
+          mobileMenu.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        };
+
+        if (menuClose) menuClose.addEventListener('click', closeMenu);
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+          link.addEventListener('click', closeMenu);
+        });
+      }
+
+      // ── Navbar scroll effect ──
+      const navbar = document.getElementById('navbar');
+      let lastScroll = 0;
+
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+
+        if (scrollY > 50) {
+          navbar.classList.add('shadow-lg', 'shadow-black/20');
+          navbar.style.borderBottom = '1px solid rgba(59,130,246,0.08)';
+        } else {
+          navbar.classList.remove('shadow-lg', 'shadow-black/20');
+          navbar.style.borderBottom = '';
+        }
+        lastScroll = scrollY;
+      }, { passive: true });
+
+      // ── Smooth scroll for anchor links ──
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            const offset = 64; // navbar height
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+        });
+      });
+
+    });
+  </script>
+
+</body>
+</html>
