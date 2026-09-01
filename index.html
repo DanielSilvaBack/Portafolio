@@ -488,7 +488,9 @@
 
     .mobile-menu {
       transform: translateX(100%);
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+      will-change: transform;
+      overscroll-behavior: contain;
     }
 
     .mobile-menu.open {
@@ -498,12 +500,53 @@
     .mobile-backdrop {
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.35s ease;
+      will-change: opacity;
     }
 
     .mobile-backdrop.open {
       opacity: 1;
       pointer-events: auto;
+    }
+
+    /* Staggered entrance animation for menu items */
+    .mobile-menu.open .mobile-nav-link {
+      animation: menuItemSlideIn 0.35s ease forwards;
+      opacity: 0;
+    }
+    .mobile-menu.open .mobile-nav-link:nth-child(1) { animation-delay: 0.06s; }
+    .mobile-menu.open .mobile-nav-link:nth-child(2) { animation-delay: 0.10s; }
+    .mobile-menu.open .mobile-nav-link:nth-child(3) { animation-delay: 0.14s; }
+    .mobile-menu.open .mobile-nav-link:nth-child(4) { animation-delay: 0.18s; }
+    .mobile-menu.open .mobile-nav-link:nth-child(5) { animation-delay: 0.22s; }
+    .mobile-menu.open .mobile-nav-link:nth-child(6) { animation-delay: 0.26s; }
+    .mobile-menu.open .mobile-nav-link:nth-child(7) { animation-delay: 0.30s; }
+    .mobile-menu.open .mobile-nav-link:nth-child(8) { animation-delay: 0.34s; }
+
+    @keyframes menuItemSlideIn {
+      from {
+        opacity: 0;
+        transform: translateX(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Active mobile nav link highlight */
+    .mobile-nav-link.active {
+      background: rgba(59, 130, 246, 0.12);
+      color: #60A5FA;
+      border-left: 3px solid #3B82F6;
+    }
+
+    /* Body lock when menu is open */
+    body.menu-open {
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+      touch-action: none;
     }
 
     /* ── Focus styles ── */
@@ -560,78 +603,89 @@
       </div>
     </div>
 
-    <!-- Mobile Backdrop Overlay -->
-    <div id="mobile-backdrop" class="mobile-backdrop fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[60] md:hidden"></div>
+  </nav>
 
-    <!-- Mobile Menu Drawer -->
-    <div id="mobile-menu"
-      class="mobile-menu fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-[#0B1120] border-l border-blue-500/20 md:hidden z-[70] flex flex-col justify-between shadow-2xl">
-      <div>
-        <!-- Menu Header -->
-        <div class="flex items-center justify-between p-5 border-b border-white/10 bg-[#070C18]">
-          <div class="flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
-            <span class="text-base font-bold text-white tracking-wide uppercase">Navegación</span>
-          </div>
-          <button id="menu-close" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="Cerrar menú">
-            <i data-lucide="x" class="w-6 h-6"></i>
-          </button>
-        </div>
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- MOBILE MENU (outside nav for proper z-index) -->
+  <!-- ═══════════════════════════════════════════ -->
 
-        <!-- Menu Items -->
-        <div class="flex flex-col p-4 gap-1.5 overflow-y-auto max-h-[calc(100vh-210px)]">
-          <a href="#hero"
-            class="mobile-nav-link flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white hover:bg-blue-500/10 rounded-xl transition-all font-medium text-sm">
-            <i data-lucide="home" class="w-4 h-4 text-blue-400"></i> Inicio
-          </a>
-          <a href="#perfil"
-            class="mobile-nav-link flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white hover:bg-blue-500/10 rounded-xl transition-all font-medium text-sm">
-            <i data-lucide="user" class="w-4 h-4 text-cyan-400"></i> Perfil
-          </a>
-          <a href="#experiencia"
-            class="mobile-nav-link flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white hover:bg-blue-500/10 rounded-xl transition-all font-medium text-sm">
-            <i data-lucide="briefcase" class="w-4 h-4 text-blue-400"></i> Experiencia
-          </a>
-          <a href="#soporte"
-            class="mobile-nav-link flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white hover:bg-blue-500/10 rounded-xl transition-all font-medium text-sm">
-            <i data-lucide="headphones" class="w-4 h-4 text-cyan-400"></i> Soporte
-          </a>
-          <a href="#techstack"
-            class="mobile-nav-link flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white hover:bg-blue-500/10 rounded-xl transition-all font-medium text-sm">
-            <i data-lucide="code-2" class="w-4 h-4 text-purple-400"></i> Skills
-          </a>
-          <a href="#proyectos"
-            class="mobile-nav-link flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white hover:bg-blue-500/10 rounded-xl transition-all font-medium text-sm">
-            <i data-lucide="folder-git-2" class="w-4 h-4 text-green-400"></i> Proyectos
-          </a>
-          <a href="#formacion"
-            class="mobile-nav-link flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white hover:bg-blue-500/10 rounded-xl transition-all font-medium text-sm">
-            <i data-lucide="graduation-cap" class="w-4 h-4 text-yellow-400"></i> Formación
-          </a>
-          <a href="#contacto"
-            class="mobile-nav-link flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white hover:bg-blue-500/10 rounded-xl transition-all font-medium text-sm">
-            <i data-lucide="mail" class="w-4 h-4 text-blue-400"></i> Contacto
-          </a>
-        </div>
+  <!-- Mobile Backdrop Overlay -->
+  <div id="mobile-backdrop" class="mobile-backdrop fixed inset-0 bg-black/60 backdrop-blur-sm md:hidden" style="z-index: 9998;"></div>
+
+  <!-- Mobile Menu Drawer -->
+  <div id="mobile-menu"
+    class="mobile-menu fixed top-0 right-0 bottom-0 w-[min(320px,85vw)] md:hidden flex flex-col"
+    style="z-index: 9999; background: #0a0f1e;" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+
+    <!-- Menu Header -->
+    <div class="flex items-center justify-between px-5 py-4 border-b border-blue-500/15" style="background: #070c18;">
+      <div class="flex items-center gap-2.5">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span class="text-sm font-bold text-white tracking-wider uppercase">Navegación</span>
       </div>
+      <button id="menu-close"
+        class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+        aria-label="Cerrar menú">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
 
-      <!-- Menu Footer -->
-      <div class="p-4 border-t border-white/10 bg-[#070C18] space-y-3">
-        <a href="https://drive.google.com/file/d/1pkn0RYf83Q9OVBs_QsiBivs7EV97Hrld/view?usp=sharing" target="_blank" rel="noopener"
-           class="flex items-center justify-center gap-2 w-full py-2.5 px-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-medium text-xs rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all">
-          <i data-lucide="download" class="w-4 h-4"></i> Descargar CV
+    <!-- Menu Items (scrollable) -->
+    <nav class="flex-1 overflow-y-auto overscroll-contain py-3 px-3" aria-label="Navegación móvil">
+      <div class="flex flex-col gap-1">
+        <a href="#hero" data-section="hero"
+          class="mobile-nav-link flex items-center gap-3 px-4 py-3.5 text-slate-300 hover:text-white hover:bg-blue-500/10 rounded-xl transition-all font-medium text-sm">
+          <i data-lucide="home" class="w-4 h-4 text-blue-400 flex-shrink-0"></i> Inicio
         </a>
-        <div class="flex items-center justify-center gap-4 text-slate-400 pt-1">
-          <a href="https://www.linkedin.com/in/elkindanielsilva" target="_blank" rel="noopener" class="hover:text-white p-1.5 rounded-lg hover:bg-white/5 transition-colors" aria-label="LinkedIn">
-            <i data-lucide="linkedin" class="w-5 h-5"></i>
-          </a>
-          <a href="https://github.com/DanielSilvaBack" target="_blank" rel="noopener" class="hover:text-white p-1.5 rounded-lg hover:bg-white/5 transition-colors" aria-label="GitHub">
-            <i data-lucide="github" class="w-5 h-5"></i>
-          </a>
-        </div>
+        <a href="#perfil" data-section="perfil"
+          class="mobile-nav-link flex items-center gap-3 px-4 py-3.5 text-slate-300 hover:text-white hover:bg-blue-500/10 rounded-xl transition-all font-medium text-sm">
+          <i data-lucide="user" class="w-4 h-4 text-cyan-400 flex-shrink-0"></i> Perfil
+        </a>
+        <a href="#experiencia" data-section="experiencia"
+          class="mobile-nav-link flex items-center gap-3 px-4 py-3.5 text-slate-300 hover:text-white hover:bg-blue-500/10 rounded-xl transition-all font-medium text-sm">
+          <i data-lucide="briefcase" class="w-4 h-4 text-blue-400 flex-shrink-0"></i> Experiencia
+        </a>
+        <a href="#soporte" data-section="soporte"
+          class="mobile-nav-link flex items-center gap-3 px-4 py-3.5 text-slate-300 hover:text-white hover:bg-blue-500/10 rounded-xl transition-all font-medium text-sm">
+          <i data-lucide="headphones" class="w-4 h-4 text-cyan-400 flex-shrink-0"></i> Soporte
+        </a>
+        <a href="#techstack" data-section="techstack"
+          class="mobile-nav-link flex items-center gap-3 px-4 py-3.5 text-slate-300 hover:text-white hover:bg-blue-500/10 rounded-xl transition-all font-medium text-sm">
+          <i data-lucide="code-2" class="w-4 h-4 text-purple-400 flex-shrink-0"></i> Skills
+        </a>
+        <a href="#proyectos" data-section="proyectos"
+          class="mobile-nav-link flex items-center gap-3 px-4 py-3.5 text-slate-300 hover:text-white hover:bg-blue-500/10 rounded-xl transition-all font-medium text-sm">
+          <i data-lucide="folder-git-2" class="w-4 h-4 text-green-400 flex-shrink-0"></i> Proyectos
+        </a>
+        <a href="#formacion" data-section="formacion"
+          class="mobile-nav-link flex items-center gap-3 px-4 py-3.5 text-slate-300 hover:text-white hover:bg-blue-500/10 rounded-xl transition-all font-medium text-sm">
+          <i data-lucide="graduation-cap" class="w-4 h-4 text-yellow-400 flex-shrink-0"></i> Formación
+        </a>
+        <a href="#contacto" data-section="contacto"
+          class="mobile-nav-link flex items-center gap-3 px-4 py-3.5 text-slate-300 hover:text-white hover:bg-blue-500/10 rounded-xl transition-all font-medium text-sm">
+          <i data-lucide="mail" class="w-4 h-4 text-blue-400 flex-shrink-0"></i> Contacto
+        </a>
+      </div>
+    </nav>
+
+    <!-- Menu Footer -->
+    <div class="px-4 py-4 border-t border-white/10 space-y-3" style="background: #070c18;">
+      <a href="https://drive.google.com/file/d/1pkn0RYf83Q9OVBs_QsiBivs7EV97Hrld/view?usp=sharing" target="_blank" rel="noopener"
+         class="flex items-center justify-center gap-2 w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold text-sm rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all">
+        <i data-lucide="download" class="w-4 h-4"></i> Descargar CV
+      </a>
+      <div class="flex items-center justify-center gap-5 text-slate-400 pt-1">
+        <a href="https://www.linkedin.com/in/elkindanielsilva" target="_blank" rel="noopener"
+           class="hover:text-blue-400 p-2 rounded-lg hover:bg-white/5 transition-colors" aria-label="LinkedIn">
+          <i data-lucide="linkedin" class="w-5 h-5"></i>
+        </a>
+        <a href="https://github.com/DanielSilvaBack" target="_blank" rel="noopener"
+           class="hover:text-white p-2 rounded-lg hover:bg-white/5 transition-colors" aria-label="GitHub">
+          <i data-lucide="github" class="w-5 h-5"></i>
+        </a>
       </div>
     </div>
-  </nav>
+  </div>
 
   <main>
     <!-- ═══════════════════════════════════════════ -->
@@ -2039,29 +2093,96 @@
       const menuClose = document.getElementById('menu-close');
       const mobileMenu = document.getElementById('mobile-menu');
       const mobileBackdrop = document.getElementById('mobile-backdrop');
+      let scrollPosition = 0;
 
       if (menuToggle && mobileMenu) {
         const openMenu = () => {
+          scrollPosition = window.scrollY;
           mobileMenu.classList.add('open');
           if (mobileBackdrop) mobileBackdrop.classList.add('open');
           menuToggle.setAttribute('aria-expanded', 'true');
-          document.body.style.overflow = 'hidden';
+          document.body.classList.add('menu-open');
+          document.body.style.top = `-${scrollPosition}px`;
+          // Re-init Lucide icons inside mobile menu (needed since menu is now outside nav)
+          if (typeof lucide !== 'undefined') lucide.createIcons();
+          // Focus the close button for accessibility
+          setTimeout(() => { if (menuClose) menuClose.focus(); }, 100);
         };
 
         const closeMenu = () => {
           mobileMenu.classList.remove('open');
           if (mobileBackdrop) mobileBackdrop.classList.remove('open');
           menuToggle.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
+          document.body.classList.remove('menu-open');
+          document.body.style.top = '';
+          window.scrollTo(0, scrollPosition);
         };
 
         menuToggle.addEventListener('click', openMenu);
         if (menuClose) menuClose.addEventListener('click', closeMenu);
         if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMenu);
 
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+            closeMenu();
+            menuToggle.focus();
+          }
+        });
+
+        // Close on nav link click
         document.querySelectorAll('.mobile-nav-link').forEach(link => {
           link.addEventListener('click', closeMenu);
         });
+
+        // Swipe to close gesture
+        let touchStartX = 0;
+        let touchCurrentX = 0;
+        let isSwiping = false;
+
+        mobileMenu.addEventListener('touchstart', (e) => {
+          touchStartX = e.touches[0].clientX;
+          isSwiping = true;
+        }, { passive: true });
+
+        mobileMenu.addEventListener('touchmove', (e) => {
+          if (!isSwiping) return;
+          touchCurrentX = e.touches[0].clientX;
+          const deltaX = touchCurrentX - touchStartX;
+          // Only allow swiping right (to close)
+          if (deltaX > 0) {
+            mobileMenu.style.transition = 'none';
+            mobileMenu.style.transform = `translateX(${deltaX}px)`;
+          }
+        }, { passive: true });
+
+        mobileMenu.addEventListener('touchend', () => {
+          if (!isSwiping) return;
+          isSwiping = false;
+          const deltaX = touchCurrentX - touchStartX;
+          mobileMenu.style.transition = '';
+          mobileMenu.style.transform = '';
+          // If swiped more than 80px to the right, close
+          if (deltaX > 80) {
+            closeMenu();
+          }
+          touchStartX = 0;
+          touchCurrentX = 0;
+        }, { passive: true });
+
+        // Sync active state on mobile nav links
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link[data-section]');
+        const mobileNavObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const id = entry.target.getAttribute('id');
+              mobileNavLinks.forEach(link => {
+                link.classList.toggle('active', link.dataset.section === id);
+              });
+            }
+          });
+        }, { rootMargin: '-40% 0px -60% 0px', threshold: 0 });
+        sections.forEach(section => mobileNavObserver.observe(section));
       }
 
       // ── Navbar scroll effect ──
